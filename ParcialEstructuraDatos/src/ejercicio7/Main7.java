@@ -114,7 +114,7 @@ public class Main7 {
         System.out.println("Temperatura promedio de esa semana: " + tempPromedioSemana);
     }
 
-    public static void main(String[] args) {
+ public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         // Crear lista de datos climáticos
@@ -124,11 +124,17 @@ public class Main7 {
         // Pedir al usuario el mes que desea ver
         System.out.print("Ingrese el mes (1-12) del que desea ver la temperatura promedio: ");
         int mesBuscar = scanner.nextInt();
+        
+        // Calcula si el numero para buscar el mes esta afuera del rango de meses (1-12)
+        if (mesBuscar > 12 || mesBuscar < 1) {
+        	System.out.println("Ese mes no existe xd");
+        } else {
+        	// Calcular y mostrar la temperatura promedio del mes seleccionado
+            double temperaturaPromedio = tempProm(mesBuscar);
+            System.out.println("Temperatura promedio del mes " + mesBuscar + ": " + temperaturaPromedio);
 
-        // Calcular y mostrar la temperatura promedio del mes seleccionado
-        double temperaturaPromedio = tempProm(mesBuscar);
-        System.out.println("Temperatura promedio del mes " + mesBuscar + ": " + temperaturaPromedio);
-
+        }
+        	
         // Calcular y mostrar la semana con mayor temperatura del primer trimestre
         SemMayorTempTrimestre();
 
